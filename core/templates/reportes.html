@@ -1,0 +1,42 @@
+{% extends 'mainBase.html' %}
+{% block title %}Creación de reportes{% endblock %}
+{% block content %}
+    <div class="row my-4">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mx-auto">
+            <div id="tableChart" class="tableChart" >
+                <div class="border p-3 shadow">
+                    <h4>Ingrese data</h4>
+                    <hr>
+                    {% include 'formReporte.html' %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mx-auto">
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID reporte</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Ganancia</th>
+                        <th scope="col">Perdida</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for reporte in reporte %}
+                      <tr>
+                        <td class="table-id"><b>{{ reporte.id }}</b></td>
+                        <td>{{ reporte.date }}</td>
+                        <td>{{ reporte.ganancia }}</td>
+                        <td>{{ reporte.perdida }}</td>
+                        <td><a class="btn btn-danger" href="{% url 'eliminarReporte' reporte.id %}" role="button">Eliminar</a></td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>  
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

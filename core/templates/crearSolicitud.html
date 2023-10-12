@@ -1,0 +1,15 @@
+{% extends 'mainBase.html' %}
+
+{% block title %}Almacén{% endblock %}
+{% block content %}
+    <div class="card" style="width: 40rem;">
+        <div class="card-header">
+            Crear solicitud
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Datos generales de la solicitud</h4>
+            {% include 'formSolicitud.html' %}
+        </div>
+    </div>
+
+{% endblock %}

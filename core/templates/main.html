@@ -1,0 +1,110 @@
+{% extends 'mainBase.html' %}
+
+{% block title %}Panel{% endblock %}
+{% block content %}
+    <div class="container-fluid px-4 ">
+                <div class="row g-3 my-2">
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">{{personalCant}}</h3>
+                                <p class="fs-5">Personal activo</p>
+                            </div>
+                            <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">{{reporteCant}}</h3>
+                                <p class="fs-5">Reportes generados</p>
+                            </div>
+                            <i
+                                class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">{{solicitudCant}}</h3>
+                                <p class="fs-5">Solicitudes realizadas</p>
+                            </div>
+                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-5">
+                    <div class="col">
+                        <h3 class="fs-4 mb-3">Tabla Personal</h3>
+                        <table class="table bg-white rounded shadow-sm  table-hover">
+                            <thead>
+                                <tr>
+                                  <th scope="col">ID</th>
+                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Apellido</th>
+                                  <th scope="col">Area</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table-striped">
+                                {% for personal in personal %}
+                                <tr>
+                                  <th scope="row">{{ personal.id }}</th>
+                                  <td>{{ personal.nombre }}</td>
+                                  <td>{{ personal.apellido }}</td>
+                                  <td>{{ personal.areas}}</td>
+                                </tr>
+                                {% endfor %}
+                              </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <h3 class="fs-4 mb-3">Tabla Reportes</h3>
+                        <table class="table bg-white rounded shadow-sm  table-hover">
+                            <thead>
+                                <tr>
+                                  <th scope="col">ID</th>
+                                  <th scope="col">Fecha</th>
+                                  <th scope="col">Ganancia</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table-striped">
+                                {% for reporte in reporte %}
+                                <tr>
+                                  <th scope="row">{{ reporte.id }}</th>
+                                  <td>{{ reporte.date }}</td>
+                                  <td>{{ reporte.ganancia }}</td>
+                                </tr>
+                                {% endfor %}
+                              </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <h3 class="fs-4 mb-3">Tabla Solicitudes</h3>
+                        <table class="table bg-white rounded shadow-sm  table-hover">
+                            <thead>
+                                <tr>
+                                  <th scope="col">ID</th>
+                                  <th scope="col">Empresa</th>
+                                  <th scope="col">Producto</th>
+                                  <th scope="col">Cantidad</th>
+                                </tr>
+                              </thead>
+                              <tbody class="table-striped">
+                                {% for solicitud in solicitud %}
+                                <tr>
+                                  <th scope="row">{{ solicitud.id }}</th>
+                                  <td>{{ solicitud.empresa }}</td>
+                                  <td>{{ solicitud.producto }}</td>
+                                  <td>{{ solicitud.cantidad }}</td>
+                                </tr>
+                                {% endfor %}
+                              </tbody>
+                        </table>
+                    </div>
+                </div>
+
+    </div>
+{% endblock %}

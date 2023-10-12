@@ -1,0 +1,59 @@
+{% extends 'mainBase.html' %}
+{% load static %}
+{% block head %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+{% block title %}Graficos{% endblock %}
+{% block content %}
+
+
+    
+    <div class="container">
+        <div class="row my-4">
+            <!-- Contenedor de grid para la tabla del grafico -->
+            
+
+            <!-- Contenedor de grid para el grafico -->
+            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mx-auto graffic-container">
+                <div class="row my-4 chart">
+                    <div>
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                      
+                    <script>
+                        const ctx1 = document.getElementById('myChart1');
+                      
+                        new Chart(ctx1, {
+                          type: 'bar',
+                          data: {
+                            labels: [{% for reporte in reporte %} '{{ reporte.date }}', {% endfor %}],
+                            datasets: [
+                            {
+                              label: 'Ganancias por fecha',
+                              data: [{% for reporte in reporte %} '{{ reporte.ganancia }}', {% endfor %}],
+                              borderWidth: 1
+                            },
+                            {
+                              label: 'Perdidas por fecha',
+                              data: [{% for reporte in reporte %} '{{ reporte.perdida }}', {% endfor %}],
+                              borderWidth: 1
+                            }
+                            
+                            ]
+                          },
+                          options: {
+                            scales: {
+                              y: {
+                                beginAtZero: true
+                              }
+                            }
+                          }
+                        });
+                    </script>
+                </div>
+                
+                <!-- <div class="btn btn-primary muestra">Cambiar muestra de grafico</div> -->            
+            </div>
+        </div>
+    </div>
+{% endblock %}

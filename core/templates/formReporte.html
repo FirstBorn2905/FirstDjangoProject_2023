@@ -1,0 +1,6 @@
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ error }}
+    <input name="" id="" class="btn btn-success" type="submit" value="Validar información">
+</form>

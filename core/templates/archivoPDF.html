@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PDF report</title>
+  </head>
+  <body>
+    <div class="container justify-content-center">
+      <h1 class="title text-center">Reporte general de solicitudes</h1>
+      <p class="subtitle text-center">Reporte generado por: {{ user.username }}</p>
+    </div>
+    <div class="table-container">
+      <table class="table mt-4">
+        <thead>
+          <tr>
+            <th scope="col"><b>ID operación</b></th>
+            <th scope="col"><b>Nombre solicitante</b></th>
+            <th scope="col"><b>Empresa proveedora</b></th>
+            <th scope="col"><b>Producto solicitado</b></th>
+            <th scope="col"><b>Cantidad</b></th>
+            <th scope="col"><b>Fecha de solicitud</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for solicitud in solicitud %}
+          <tr>
+            <td class="table-id"><b>{{ solicitud.id }}</b></td>
+            <td>{{ solicitud.usuario }}</td>
+            <td>{{ solicitud.empresa }}</td>
+            <td>{{ solicitud.producto }}</td>
+            <td>{{ solicitud.cantidad }}</td>
+            <td>{{ solicitud.fechaPeticion }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>    
+    </div>
+  </body>
+</html>

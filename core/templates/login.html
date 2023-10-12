@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Ingresar{% endblock %}
+
+{% block content %}
+    <main class="container">
+        <section class="col-md-4 offset-md-4 mt-5 text-center">
+            <h1>Ingresar</h1> 
+            <form  method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary mb-3">Ingresar</button>
+                <br>
+                {{ error }}
+            </form>
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'mainBase.html' %}
+
+{% block title %}Personal{% endblock %}
+{% block content %}
+
+
+    <table class="table table-bordered mx-auto" style="width: 70%;">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Area</th>
+          </tr>
+        </thead>
+        <tbody class="table-striped">
+          {% for trabajador in trabajadores %}
+          <tr>
+            <th scope="row">{{ trabajador.id }}</th>
+            <td>{{ trabajador.nombre }}</td>
+            <td>{{ trabajador.apellido }}</td>
+            <td>{{ trabajador.areas}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

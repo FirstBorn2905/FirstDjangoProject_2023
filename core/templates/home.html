@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+<!-- {% block title %}Login{% endblock %} -->
+
+{% block content %}
+    <main class="container py-5">
+        <section class="card card-body text-center">
+            <h2>¡Nos alegra tenerte de vuelta!</h2>
+            <p>Estamos muy agradecidos con su compromiso hacia la empresa. <br> Siempre mejorando para apoyarnos entre todos</p>
+
+            <div class="text-center">
+                {% if user.is_authenticated %}
+                    Hi {{ user.username }}!
+                    <a href="/main" class="btn btn-primary"> <span class="glyphicon glyphicon-log-in"></span>Ingresar</a>
+                    <a href="/signout" class="btn btn-danger">Salir</a>
+                {% else %}
+                    <a href="/signin" class="btn btn-primary"> <span class="glyphicon glyphicon-log-in"></span>Ingresar</a>
+                    <a href="/signup" class="btn btn-success">Registrate</a>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+{% endblock %}
